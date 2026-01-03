@@ -1,0 +1,20 @@
+replicaCount: 1
+
+image:
+  repository: <AWS_ACCOUNT_ID>.dkr.ecr.ap-south-1.amazonaws.com/go-web-app
+  pullPolicy: IfNotPresent
+  # Image tag is intentionally empty
+  # CI pipeline updates this value automatically
+  tag: ""
+
+ingress:
+  enabled: true
+  className: nginx   # keep empty if your cluster has a default ingress controller
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  hosts:
+    - host: PLACEHOLDER_HOST
+      paths:
+        - path: /
+          pathType: Prefix
+

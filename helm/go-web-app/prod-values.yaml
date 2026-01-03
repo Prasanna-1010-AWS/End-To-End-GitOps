@@ -1,0 +1,17 @@
+replicaCount: 3
+
+image:
+  repository: <AWS_ACCOUNT_ID>.dkr.ecr.ap-south-1.amazonaws.com/go-web-app
+  pullPolicy: IfNotPresent
+  tag: latest
+
+ingress:
+  enabled: true
+  className: ""
+  annotations: {}
+  hosts:
+    - host: PLACEHOLDER_HOST
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+
