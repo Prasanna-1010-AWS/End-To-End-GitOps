@@ -3,15 +3,16 @@ replicaCount: 3
 image:
   repository: <AWS_ACCOUNT_ID>.dkr.ecr.ap-south-1.amazonaws.com/go-web-app
   pullPolicy: IfNotPresent
-  tag: a3e3804
+  # CI pipeline will update this automatically
+  tag: ""
 
 ingress:
   enabled: true
-  className: ""
-  annotations: {}
+  className: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
   hosts:
-    - host: go-app.example.com
+    - host: PLACEHOLDER_HOST
       paths:
         - path: /
-          pathType: ImplementationSpecific
-
+          pathType: Prefix
