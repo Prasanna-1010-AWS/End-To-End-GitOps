@@ -5,7 +5,7 @@ metadata:
   name: go-web-app
   annotations:
 {{- with .Values.ingress.annotations }}
-{{ toYaml . | indent 4 }}
+{{ toYaml . | nindent 4 }}
 {{- end }}
 spec:
 {{- if .Values.ingress.className }}
@@ -13,18 +13,17 @@ spec:
 {{- end }}
   rules:
 {{- range .Values.ingress.hosts }}
-  - host: {{ .host }}
-    http:
-      paths:
+    - host: {{ .host }}
+      http:
+        paths:
 {{- range .paths }}
-      - path: {{ .path }}
-        pathType: {{ .pathType }}
-        backend:
-          service:
-            name: go-web-app
-            port:
-              number: 80
+          - path: {{ .path }}
+            pathType: {{ .pathType }}
+            backend:
+              service:
+                name: go-web-app
+                port:
+                  number: 80
 {{- end }}
 {{- end }}
 {{- end }}
-
