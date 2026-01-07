@@ -4,13 +4,11 @@ kind: Ingress
 metadata:
   name: go-web-app
   annotations:
+    kubernetes.io/ingress.class: alb
 {{- with .Values.ingress.annotations }}
 {{ toYaml . | nindent 4 }}
 {{- end }}
 spec:
-{{- if .Values.ingress.className }}
-  ingressClassName: {{ .Values.ingress.className }}
-{{- end }}
   rules:
 {{- range .Values.ingress.hosts }}
     - host: {{ .host }}
