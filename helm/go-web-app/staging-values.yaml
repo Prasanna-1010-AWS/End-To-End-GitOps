@@ -4,7 +4,7 @@ image:
   repository: <AWS_ACCOUNT_ID>.dkr.ecr.ap-south-1.amazonaws.com/go-web-app
   pullPolicy: IfNotPresent
   # CI pipeline will update this automatically
-  tag: ""
+  tag: a3e3804
 
 ingress:
   enabled: true
@@ -12,7 +12,7 @@ ingress:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
   hosts:
-    - host: PLACEHOLDER_HOST
+    - host: staging.prasanna-aws.com
       paths:
         - path: /
           pathType: Prefix
