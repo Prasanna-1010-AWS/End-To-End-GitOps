@@ -3,10 +3,10 @@ replicaCount: 3
 global:
   awsAccountId: "837717008195"
   region: ap-south-1
-  ecrRepository: endtoend   # fixed repo name where CI pushes images
+  ecrRepository: endtoend
 
 image:
-  tag: ""                   # CI pipeline will fill this dynamically
+  tag: ""        # CI will fill this dynamically
   pullPolicy: IfNotPresent
 
 service:
