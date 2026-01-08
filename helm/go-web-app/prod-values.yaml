@@ -1,10 +1,18 @@
 replicaCount: 3
 
+global:
+  awsAccountId: "837717008195"
+  region: ap-south-1
+  ecrRepository: endtoend   # fixed repo name where CI pushes images
+
 image:
-  repository: <AWS_ACCOUNT_ID>.dkr.ecr.ap-south-1.amazonaws.com/go-web-app
+  tag: ""                   # CI pipeline will fill this dynamically
   pullPolicy: IfNotPresent
-  # CI pipeline will update this automatically
-  tag: 25e31fb
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
 
 ingress:
   enabled: true
@@ -19,8 +27,3 @@ ingress:
       paths:
         - path: /
           pathType: Prefix
-
-service:
-  type: ClusterIP
-  port: 80
-  targetPort: 8080
