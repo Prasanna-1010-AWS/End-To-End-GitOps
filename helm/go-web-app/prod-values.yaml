@@ -6,7 +6,7 @@ global:
   ecrRepository: endtoend
 
 image:
-  tag: ""        # CI will fill this dynamically
+  tag: a57b59b
   pullPolicy: IfNotPresent
 
 service:
