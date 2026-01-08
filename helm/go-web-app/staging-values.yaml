@@ -3,8 +3,7 @@ replicaCount: 1
 image:
   repository: <AWS_ACCOUNT_ID>.dkr.ecr.ap-south-1.amazonaws.com/go-web-app
   pullPolicy: IfNotPresent
-  # CI pipeline will update this automatically
-  tag: a3e3804
+  tag: ""
 
 ingress:
   enabled: true
@@ -16,3 +15,8 @@ ingress:
       paths:
         - path: /
           pathType: Prefix
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
