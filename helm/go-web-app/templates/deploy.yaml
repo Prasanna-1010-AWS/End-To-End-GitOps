@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: go-web-app
-          image: "{{ .Values.global.awsAccountId }}.dkr.ecr.{{ .Values.global.region }}.amazonaws.com/{{ .Values.image.name }}:{{ .Values.image.tag }}"
+          image: "{{ .Values.global.awsAccountId }}.dkr.ecr.{{ .Values.global.region }}.amazonaws.com/{{ .Values.global.ecrRepository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: 8080
