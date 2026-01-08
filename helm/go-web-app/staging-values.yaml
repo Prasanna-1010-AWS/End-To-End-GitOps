@@ -7,9 +7,12 @@ image:
 
 ingress:
   enabled: true
-  className: nginx
+  className: alb
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/backend-protocol: HTTP
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
   hosts:
     - host: staging.prasanna-aws.com
       paths:
