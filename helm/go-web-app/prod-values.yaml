@@ -6,7 +6,7 @@ global:
   ecrRepository: endtoend
 
 image:
-  tag: a57b59b
+  tag: "8f581e6"
   pullPolicy: IfNotPresent
 
 service:
