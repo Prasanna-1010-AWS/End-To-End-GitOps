@@ -3,9 +3,9 @@ replicaCount: 1
 global:
   awsAccountId: "837717008195"
   region: ap-south-1
+  ecrRepository: endtoend
 
 image:
-  name: go-web-app
   tag: "613160b"
   pullPolicy: IfNotPresent
 
