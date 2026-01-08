@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: <AWS_ACCOUNT_ID>.dkr.ecr.ap-south-1.amazonaws.com/go-web-app
   pullPolicy: IfNotPresent
-  tag: 618e82d
+  tag: b03431e
 
 ingress:
   enabled: true
