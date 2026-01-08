@@ -3,7 +3,7 @@ replicaCount: 1
 global:
   awsAccountId: "837717008195"
   region: ap-south-1
-  ecrRepository: endtoend
+  ecrRepository: endtoend   # <-- match your CI pipeline
 
 image:
   tag: "613160b"
