@@ -1,9 +1,13 @@
 replicaCount: 1
 
+global:
+  awsAccountId: "837717008195"
+  region: ap-south-1
+
 image:
-  repository: <AWS_ACCOUNT_ID>.dkr.ecr.ap-south-1.amazonaws.com/endtoend
+  name: go-web-app
+  tag: "613160b"
   pullPolicy: IfNotPresent
-  tag: "613160b"   # updated by CI
 
 service:
   type: ClusterIP
@@ -14,7 +18,6 @@ ingress:
   enabled: true
   className: alb
   annotations:
-    kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/backend-protocol: HTTP
