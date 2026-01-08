@@ -4,7 +4,7 @@ image:
   repository: <AWS_ACCOUNT_ID>.dkr.ecr.ap-south-1.amazonaws.com/go-web-app
   pullPolicy: IfNotPresent
   # CI pipeline will update this automatically
-  tag: ""
+  tag: 6704ac8
 
 ingress:
   enabled: true
@@ -15,7 +15,7 @@ ingress:
     alb.ingress.kubernetes.io/backend-protocol: HTTP
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
   hosts:
-    - host: PLACEHOLDER_HOST
+    - host: prasanna-aws.com
       paths:
         - path: /
           pathType: Prefix
