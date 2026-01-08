@@ -1,14 +1,20 @@
 replicaCount: 1
 
 image:
-  repository: <AWS_ACCOUNT_ID>.dkr.ecr.ap-south-1.amazonaws.com/go-web-app
+  repository: <AWS_ACCOUNT_ID>.dkr.ecr.ap-south-1.amazonaws.com/endtoend
   pullPolicy: IfNotPresent
-  tag: 613160b
+  tag: "613160b"   # updated by CI
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
 
 ingress:
   enabled: true
   className: alb
   annotations:
+    kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/backend-protocol: HTTP
@@ -18,8 +24,3 @@ ingress:
       paths:
         - path: /
           pathType: Prefix
-
-service:
-  type: ClusterIP
-  port: 80
-  targetPort: 8080
