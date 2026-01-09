@@ -23,7 +23,7 @@ ingress:
     alb.ingress.kubernetes.io/backend-protocol: HTTP
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
   hosts:
-    - host: staging.prasanna-aws.com
+    - host: staging.prasanna-aws.cloud
       paths:
         - path: /
           pathType: Prefix
